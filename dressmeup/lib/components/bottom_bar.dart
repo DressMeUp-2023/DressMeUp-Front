@@ -19,8 +19,8 @@ class _BottomBarState extends State<BottomBar> {
           });
         },
         currentIndex: currentIndex,
-        selectedItemColor: Color.fromRGBO(246, 154, 154, 1.0),
-        unselectedItemColor: Colors.black,
+        selectedItemColor: const Color.fromRGBO(246, 154, 154, 1.0),
+        unselectedItemColor: const Color(0xffA9DDF7),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(

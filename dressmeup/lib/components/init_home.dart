@@ -1,6 +1,5 @@
-import "package:dressmeup/components/change_model.dart";
-import "package:dressmeup/components/dress_up.dart";
-import "package:dressmeup/components/home_page.dart";
+import 'package:dressmeup/components/changeModel/change_model.dart';
+import 'package:dressmeup/components/dressUp/dress_up.dart';
 import "package:dressmeup/components/album.dart";
 import "package:flutter/material.dart";
 
@@ -12,13 +11,8 @@ class InitHome extends StatefulWidget {
 }
 
 class _BottomBarState extends State<InitHome> {
-  int currentIndex = 0;
-  static List<Widget> pages = const <Widget>[
-    HomePage(),
-    ChangeModel(),
-    DressUp(),
-    Album()
-  ];
+  int currentIndex = 1;
+  static List<Widget> pages = const <Widget>[ChangeModel(), DressUp(), Album()];
 
   @override
   Widget build(BuildContext context) {
@@ -30,17 +24,19 @@ class _BottomBarState extends State<InitHome> {
             });
           },
           currentIndex: currentIndex,
-          selectedItemColor: Color.fromRGBO(246, 154, 154, 1.0),
-          unselectedItemColor: Colors.black,
+          selectedItemColor: const Color.fromRGBO(246, 154, 154, 1.0),
+          unselectedItemColor: Colors.grey.shade700,
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.accessibility), label: "Change model"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.checkroom), label: "Dress UP"),
             BottomNavigationBarItem(icon: Icon(Icons.photo), label: "Album"),
           ]),
-      body: Center(child: pages[currentIndex]),
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Center(child: pages[currentIndex]),
+      ),
     );
   }
 }
