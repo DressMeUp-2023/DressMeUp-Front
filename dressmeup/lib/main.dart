@@ -1,6 +1,5 @@
 import 'package:dressmeup/components/init_home.dart';
 import 'package:flutter/material.dart';
-import 'components/home_page.dart';
 
 void main() {
   runApp(const MyApp());

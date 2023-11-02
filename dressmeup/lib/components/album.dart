@@ -6,11 +6,12 @@ class Album extends StatelessWidget {
   @override
   Widget build(context) {
     return Scaffold(
+      backgroundColor: const Color(0xffA9DDF7),
       body: Column(
         children: [
           const Spacer(flex: 1),
           Flexible(
-            flex: 6,
+            flex: 13,
             child: GridView.count(
               crossAxisCount: 3,
               children: List.generate(
@@ -20,6 +21,7 @@ class Album extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       decoration: BoxDecoration(
+                          color: Colors.white,
                           border: Border.all(color: Colors.grey.shade700),
                           borderRadius:
                               const BorderRadius.all(Radius.circular(10))),

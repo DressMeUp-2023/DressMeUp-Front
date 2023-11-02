@@ -17,21 +17,26 @@ class _BottomBarState extends State<InitHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffA9DDF7),
       bottomNavigationBar: BottomNavigationBar(
           onTap: (newIndex) {
             setState(() {
               currentIndex = newIndex;
             });
           },
+          type: BottomNavigationBarType.fixed,
           currentIndex: currentIndex,
+          showUnselectedLabels: false,
           selectedItemColor: const Color.fromRGBO(246, 154, 154, 1.0),
           unselectedItemColor: Colors.grey.shade700,
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.accessibility), label: "Change model"),
+                icon: Icon(Icons.accessibility, size: 35),
+                label: "Change model"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.checkroom), label: "Dress UP"),
-            BottomNavigationBarItem(icon: Icon(Icons.photo), label: "Album"),
+                icon: Icon(Icons.checkroom, size: 35), label: "Dress UP"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.photo, size: 35), label: "Album"),
           ]),
       body: Padding(
         padding: const EdgeInsets.all(10),

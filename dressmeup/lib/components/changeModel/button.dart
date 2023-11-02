@@ -28,6 +28,9 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return TextButton(
+      style: TextButton.styleFrom(
+          backgroundColor: Colors.white,
+          side: const BorderSide(color: Colors.grey)),
       onPressed: () {
         getImage(imgSource);
       },

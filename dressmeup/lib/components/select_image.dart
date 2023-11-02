@@ -18,11 +18,13 @@ class SelectImage extends StatelessWidget {
         onTap: () => onTap(index),
         child: Container(
           decoration: BoxDecoration(
-              border: Border.all(
-                  color: isSelected
-                      ? const Color(0xffF48E8E)
-                      : Colors.grey.shade700),
-              borderRadius: const BorderRadius.all(Radius.circular(10))),
+            color: Colors.white,
+            border: Border.all(
+                color:
+                    isSelected ? const Color(0xffF48E8E) : Colors.grey.shade700,
+                width: isSelected ? 3.0 : 1.0),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+          ),
           child: Center(child: Text("image $index")),
         ),
       ),

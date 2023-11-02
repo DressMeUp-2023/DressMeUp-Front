@@ -11,10 +11,11 @@ class ChangeModel extends StatefulWidget {
 }
 
 class _ChangeModelState extends State<ChangeModel> {
-  int _selectedImageIndex = 0;
+  int _selectedImageIndex = 7;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: Column(
         children: [
           const Spacer(flex: 1),
@@ -40,7 +41,16 @@ class _ChangeModelState extends State<ChangeModel> {
               ],
             ),
           ),
-          const Spacer(flex: 2),
+          const Flexible(
+              flex: 3,
+              child: Padding(
+                padding: EdgeInsets.only(top: 90, bottom: 130),
+                child: Text(
+                  'Select \nFitting Model',
+                  style: TextStyle(fontSize: 20),
+                  textAlign: TextAlign.center,
+                ),
+              )),
           Flexible(
             flex: 4,
             child: GridView.count(
@@ -49,13 +59,14 @@ class _ChangeModelState extends State<ChangeModel> {
                 5,
                 (index) {
                   return SelectImage(
-                      index: index,
-                      isSelected: _selectedImageIndex == index,
-                      onTap: (selectedImageIndex) {
-                        setState(() {
-                          _selectedImageIndex = index;
-                        });
+                    index: index,
+                    isSelected: _selectedImageIndex == index,
+                    onTap: (selectedImageIndex) {
+                      setState(() {
+                        _selectedImageIndex = index;
                       });
+                    },
+                  );
                 },
               ),
             ),
