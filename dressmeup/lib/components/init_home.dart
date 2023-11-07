@@ -38,10 +38,7 @@ class _BottomBarState extends State<InitHome> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.photo, size: 35), label: "Album"),
           ]),
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Center(child: pages[currentIndex]),
-      ),
+      body: Center(child: pages[currentIndex]),
     );
   }
 }

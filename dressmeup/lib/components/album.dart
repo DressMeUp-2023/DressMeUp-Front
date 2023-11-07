@@ -6,7 +6,6 @@ class Album extends StatelessWidget {
   @override
   Widget build(context) {
     return Scaffold(
-      backgroundColor: const Color(0xffA9DDF7),
       body: Column(
         children: [
           const Spacer(flex: 1),
