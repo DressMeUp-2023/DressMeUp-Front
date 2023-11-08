@@ -1,4 +1,4 @@
-import 'package:dressmeup/components/changeModel/button.dart';
+import 'package:dressmeup/components/button.dart';
 import 'package:dressmeup/components/select_image.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -21,7 +21,7 @@ class _ChangeModelState extends State<ChangeModel> {
           children: [
             const Spacer(flex: 1),
             Flexible(
-              flex: 1,
+              flex: 2,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: const [
@@ -45,7 +45,7 @@ class _ChangeModelState extends State<ChangeModel> {
             const Flexible(
                 flex: 3,
                 child: Padding(
-                  padding: EdgeInsets.only(top: 90, bottom: 130),
+                  padding: EdgeInsets.only(top: 90, bottom: 60),
                   child: Text(
                     'Select \nFitting Model',
                     style: TextStyle(fontSize: 20),
@@ -53,7 +53,7 @@ class _ChangeModelState extends State<ChangeModel> {
                   ),
                 )),
             Flexible(
-              flex: 4,
+              flex: 6,
               child: GridView.count(
                 crossAxisCount: 2,
                 children: List.generate(

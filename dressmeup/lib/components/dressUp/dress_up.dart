@@ -1,4 +1,4 @@
-import 'package:dressmeup/components/dressUp/closet.dart';
+import 'package:dressmeup/components/dressUp/closet_sheet.dart';
 import 'package:dressmeup/components/init_setting.dart';
 import 'package:flutter/material.dart';
 
@@ -57,7 +57,7 @@ class DressUp extends StatelessWidget {
                 ],
               ),
             ),
-            const Closet(),
+            const ClosetSheet(),
           ],
         ),
       ),
