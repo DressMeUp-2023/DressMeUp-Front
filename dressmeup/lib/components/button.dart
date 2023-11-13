@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:dressmeup/assets/constants.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Button extends StatelessWidget {
@@ -26,14 +26,13 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return TextButton(
       onPressed: () {
         getImage(imgSource);
       },
       style: TextButton.styleFrom(
         backgroundColor: Colors.white,
-        side: const BorderSide(color: Colors.grey),
+        side: const BorderSide(color: Color(boxBorderColor)),
         shape: buttonName == "closet"
             ? RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
@@ -41,20 +40,26 @@ class Button extends StatelessWidget {
                   width: 1.0,
                 ),
               )
-            : null,
+            : RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+                side: const BorderSide(
+                  width: 1.0,
+                ),
+              ),
       ),
       child: Center(
         child: buttonName == "closet"
-            ? Icon(Icons.add, color: Colors.grey.shade700, size: 50)
+            ? const Icon(Icons.add, color: Color(boxBorderColor), size: 50)
             : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     buttonName,
-                    style: TextStyle(fontSize: 18, color: Colors.grey.shade700),
+                    style: const TextStyle(
+                        fontSize: 18, color: Color(boxBorderColor)),
                   ),
                   const SizedBox(height: 10),
-                  Icon(icon, size: 40, color: Colors.grey.shade700)
+                  Icon(icon, size: 40, color: const Color(buttonColor))
                 ],
               ),
       ),
