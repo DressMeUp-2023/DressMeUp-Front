@@ -1,3 +1,4 @@
+import 'package:dressmeup/assets/constants.dart';
 import 'package:flutter/material.dart';
 
 class SelectImage extends StatelessWidget {
@@ -25,7 +26,21 @@ class SelectImage extends StatelessWidget {
                 width: isSelected ? 3.0 : 1.0),
             borderRadius: const BorderRadius.all(Radius.circular(10)),
           ),
-          child: Center(child: Text("image $index")),
+          child: Stack(
+            children: [
+              Center(child: Text("image $index")),
+              isSelected
+                  ? const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                        radius: 13,
+                        backgroundColor: Color(completeButtonColor),
+                        child: Icon(Icons.check, color: Colors.white),
+                      ),
+                    )
+                  : Container(),
+            ],
+          ),
         ),
       ),
     );

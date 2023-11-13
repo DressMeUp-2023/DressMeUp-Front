@@ -1,3 +1,4 @@
+import 'package:dressmeup/assets/constants.dart';
 import 'package:dressmeup/components/button.dart';
 import 'package:dressmeup/components/select_image.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ class ChangeModel extends StatefulWidget {
 
 class _ChangeModelState extends State<ChangeModel> {
   int _selectedImageIndex = 7;
+  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +25,7 @@ class _ChangeModelState extends State<ChangeModel> {
             Flexible(
               flex: 2,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   Flexible(
                       flex: 1,
@@ -44,8 +46,7 @@ class _ChangeModelState extends State<ChangeModel> {
             ),
             const Flexible(
                 flex: 3,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 90, bottom: 60),
+                child: Center(
                   child: Text(
                     'Select \nFitting Model',
                     style: TextStyle(fontSize: 20),
@@ -59,19 +60,53 @@ class _ChangeModelState extends State<ChangeModel> {
                 children: List.generate(
                   5,
                   (index) {
-                    return SelectImage(
-                      index: index,
-                      isSelected: _selectedImageIndex == index,
-                      onTap: (selectedImageIndex) {
-                        setState(() {
-                          _selectedImageIndex = index;
-                        });
-                      },
-                    );
+                    return isSelected
+                        ? SelectImage(
+                            index: index,
+                            isSelected: _selectedImageIndex == index,
+                            onTap: (selectedImageIndex) {
+                              setState(() {
+                                _selectedImageIndex = index;
+                                isSelected = false;
+                              });
+                            },
+                          )
+                        : SelectImage(
+                            index: index,
+                            isSelected: false,
+                            onTap: (selectedImageIndex) {
+                              setState(() {
+                                _selectedImageIndex = index;
+                                isSelected = true;
+                              });
+                            },
+                          );
                   },
                 ),
               ),
-            )
+            ),
+            isSelected
+                ? Container(
+                    height: 50,
+                    color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 45),
+                      child: TextButton(
+                          style: TextButton.styleFrom(
+                              backgroundColor: const Color(completeButtonColor),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40),
+                              )),
+                          onPressed: () {},
+                          child: const Center(
+                              child: Text(
+                            "Selection completed",
+                            style: TextStyle(
+                                fontSize: 20, color: Color(fontColor)),
+                          ))),
+                    ),
+                  )
+                : Container()
           ],
         ),
       ),
