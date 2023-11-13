@@ -1,3 +1,4 @@
+import 'package:dressmeup/assets/constants.dart';
 import 'package:dressmeup/components/dressUp/closet.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class ClosetSheet extends StatelessWidget {
                 child: Container(
                   height: 500,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: const Color(widgetBackgroundColor),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Closet(
@@ -36,7 +37,7 @@ class ClosetSheet extends StatelessWidget {
               children: [
                 IgnorePointer(
                   child: Container(
-                    color: Colors.white,
+                    color: const Color(widgetBackgroundColor),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -52,50 +53,38 @@ class ClosetSheet extends StatelessWidget {
                     ),
                   ),
                 ),
-                DefaultTabController(
+                const DefaultTabController(
                     length: 4,
                     initialIndex: 0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: Colors.black, width: 1.0),
-                              borderRadius: BorderRadius.circular(10)),
-                          child: const Padding(
-                            padding: EdgeInsets.all(5.0),
-                            child: Text('cloth'),
+                    child: TabBar(
+                      indicatorColor: Color(completeButtonColor),
+                      tabs: [
+                        Text(
+                          'Top',
+                          style: TextStyle(
+                            color: Color(fontColor),
+                            fontSize: 18,
                           ),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: Colors.black, width: 1.0),
-                              borderRadius: BorderRadius.circular(10)),
-                          child: const Padding(
-                            padding: EdgeInsets.all(5.0),
-                            child: Text('cloth'),
+                        Text(
+                          'Bottom',
+                          style: TextStyle(
+                            color: Color(fontColor),
+                            fontSize: 18,
                           ),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: Colors.black, width: 1.0),
-                              borderRadius: BorderRadius.circular(10)),
-                          child: const Padding(
-                            padding: EdgeInsets.all(5.0),
-                            child: Text('cloth'),
+                        Text(
+                          'cloth',
+                          style: TextStyle(
+                            color: Color(fontColor),
+                            fontSize: 18,
                           ),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: Colors.black, width: 1.0),
-                              borderRadius: BorderRadius.circular(10)),
-                          child: const Padding(
-                            padding: EdgeInsets.all(5.0),
-                            child: Text('cloth'),
+                        Text(
+                          'cloth',
+                          style: TextStyle(
+                            color: Color(fontColor),
+                            fontSize: 18,
                           ),
                         ),
                       ],
