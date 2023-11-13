@@ -1,3 +1,4 @@
+import 'package:dressmeup/assets/constants.dart';
 import 'package:dressmeup/components/changeModel/change_model.dart';
 import 'package:dressmeup/components/dressUp/dress_up.dart';
 import "package:dressmeup/components/album.dart";
@@ -17,7 +18,7 @@ class _BottomBarState extends State<InitHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffA9DDF7),
+      backgroundColor: const Color(widgetBackgroundColor),
       bottomNavigationBar: BottomNavigationBar(
           onTap: (newIndex) {
             setState(() {
@@ -27,7 +28,7 @@ class _BottomBarState extends State<InitHome> {
           type: BottomNavigationBarType.fixed,
           currentIndex: currentIndex,
           showUnselectedLabels: false,
-          selectedItemColor: const Color.fromRGBO(246, 154, 154, 1.0),
+          selectedItemColor: const Color(buttonColor),
           unselectedItemColor: Colors.grey.shade700,
           items: const [
             BottomNavigationBarItem(
