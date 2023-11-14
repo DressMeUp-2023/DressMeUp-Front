@@ -54,7 +54,7 @@ class ClosetSheet extends StatelessWidget {
                   ),
                 ),
                 const DefaultTabController(
-                    length: 4,
+                    length: 3,
                     initialIndex: 0,
                     child: TabBar(
                       indicatorColor: Color(completeButtonColor),
@@ -74,14 +74,7 @@ class ClosetSheet extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'cloth',
-                          style: TextStyle(
-                            color: Color(fontColor),
-                            fontSize: 18,
-                          ),
-                        ),
-                        Text(
-                          'cloth',
+                          'dress',
                           style: TextStyle(
                             color: Color(fontColor),
                             fontSize: 18,

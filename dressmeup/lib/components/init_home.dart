@@ -28,8 +28,9 @@ class _BottomBarState extends State<InitHome> {
           type: BottomNavigationBarType.fixed,
           currentIndex: currentIndex,
           showUnselectedLabels: false,
-          selectedItemColor: const Color(buttonColor),
-          unselectedItemColor: Colors.grey.shade700,
+          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+          selectedItemColor: const Color(dartSkyBlueColor),
+          unselectedItemColor: const Color(fontColor),
           items: const [
             BottomNavigationBarItem(
                 icon: Icon(Icons.accessibility, size: 35),
