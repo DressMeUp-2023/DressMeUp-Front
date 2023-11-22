@@ -9,7 +9,30 @@ class ClosetSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int selectedImageIndex = 7;
+    const List<Text> topList = [
+      Text("image0"),
+      Text("image0"),
+      Text("image0"),
+      Text("image0"),
+      Text("image4")
+    ];
+    const List<Text> bottomList = [
+      Text("image0"),
+      Text("image0"),
+      Text("image0"),
+      Text("image0"),
+      Text("image4"),
+      Text("image0"),
+      Text("image0"),
+      Text("image0"),
+      Text("image0"),
+      Text("image9")
+    ];
+    const List<Text> dressList = [
+      Text("image0"),
+      Text("image1"),
+    ];
+
     return DraggableScrollableSheet(
       initialChildSize: 0.18,
       minChildSize: 0.1,
@@ -28,6 +51,7 @@ class ClosetSheet extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Closet(
+                    length: 8,
                     scrollController: scrollController,
                   ),
                 ),
@@ -54,34 +78,35 @@ class ClosetSheet extends StatelessWidget {
                   ),
                 ),
                 const DefaultTabController(
-                    length: 3,
-                    initialIndex: 0,
-                    child: TabBar(
-                      indicatorColor: Color(completeButtonColor),
-                      tabs: [
-                        Text(
-                          'Top',
-                          style: TextStyle(
-                            color: Color(fontColor),
-                            fontSize: 18,
-                          ),
+                  length: 3,
+                  initialIndex: 0,
+                  child: TabBar(
+                    indicatorColor: Color(completeButtonColor),
+                    tabs: [
+                      Text(
+                        'Top',
+                        style: TextStyle(
+                          color: Color(fontColor),
+                          fontSize: 18,
                         ),
-                        Text(
-                          'Bottom',
-                          style: TextStyle(
-                            color: Color(fontColor),
-                            fontSize: 18,
-                          ),
+                      ),
+                      Text(
+                        'Bottom',
+                        style: TextStyle(
+                          color: Color(fontColor),
+                          fontSize: 18,
                         ),
-                        Text(
-                          'dress',
-                          style: TextStyle(
-                            color: Color(fontColor),
-                            fontSize: 18,
-                          ),
+                      ),
+                      Text(
+                        'dress',
+                        style: TextStyle(
+                          color: Color(fontColor),
+                          fontSize: 18,
                         ),
-                      ],
-                    )),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             )
           ],

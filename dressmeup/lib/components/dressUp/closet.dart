@@ -5,8 +5,10 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 
 class Closet extends StatefulWidget {
+  final int length;
   final ScrollController? scrollController;
-  const Closet({super.key, required this.scrollController});
+  const Closet(
+      {super.key, required this.length, required this.scrollController});
 
   @override
   State<Closet> createState() => _Closet();
@@ -24,7 +26,13 @@ class Closet extends StatefulWidget {
 }
 
 class _Closet extends State<Closet> {
-  int _selectedImageIndex = 7;
+  int _selectedImageIndex = 0;
+
+  @override
+  void initState() {
+    _selectedImageIndex = widget.length + 1;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +40,7 @@ class _Closet extends State<Closet> {
       controller: widget.scrollController,
       crossAxisCount: 4,
       children: List.generate(
-        5,
+        widget.length + 1,
         (index) {
           if (index == 0) {
             return const Padding(
