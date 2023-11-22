@@ -36,28 +36,13 @@ class ClosetSheet extends StatelessWidget {
     return DraggableScrollableSheet(
       initialChildSize: 0.18,
       minChildSize: 0.1,
-      maxChildSize: 0.5,
+      maxChildSize: 0.6,
       builder: (BuildContext context, scrollController) {
-        return Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 25.0),
-              child: SingleChildScrollView(
-                controller: scrollController,
-                child: Container(
-                  height: 500,
-                  decoration: BoxDecoration(
-                    color: const Color(widgetBackgroundColor),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Closet(
-                    length: 8,
-                    scrollController: scrollController,
-                  ),
-                ),
-              ),
-            ),
-            Column(
+        return SingleChildScrollView(
+          controller: scrollController,
+          child: Container(
+            color: const Color(widgetBackgroundColor),
+            child: Column(
               children: [
                 IgnorePointer(
                   child: Container(
@@ -77,39 +62,78 @@ class ClosetSheet extends StatelessWidget {
                     ),
                   ),
                 ),
-                const DefaultTabController(
+                DefaultTabController(
                   length: 3,
                   initialIndex: 0,
-                  child: TabBar(
-                    indicatorColor: Color(completeButtonColor),
-                    tabs: [
-                      Text(
-                        'Top',
-                        style: TextStyle(
-                          color: Color(fontColor),
-                          fontSize: 18,
-                        ),
+                  child: Column(
+                    children: [
+                      const TabBar(
+                        indicatorColor: Color(completeButtonColor),
+                        tabs: [
+                          Text(
+                            'Top',
+                            style: TextStyle(
+                              color: Color(fontColor),
+                              fontSize: 18,
+                            ),
+                          ),
+                          Text(
+                            'Bottom',
+                            style: TextStyle(
+                              color: Color(fontColor),
+                              fontSize: 18,
+                            ),
+                          ),
+                          Text(
+                            'dress',
+                            style: TextStyle(
+                              color: Color(fontColor),
+                              fontSize: 18,
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        'Bottom',
-                        style: TextStyle(
-                          color: Color(fontColor),
-                          fontSize: 18,
-                        ),
-                      ),
-                      Text(
-                        'dress',
-                        style: TextStyle(
-                          color: Color(fontColor),
-                          fontSize: 18,
-                        ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.5,
+                        child: TabBarView(children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: const Color(widgetBackgroundColor),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Closet(
+                              length: topList.length,
+                              scrollController: scrollController,
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: const Color(widgetBackgroundColor),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Closet(
+                              length: bottomList.length,
+                              scrollController: scrollController,
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: const Color(widgetBackgroundColor),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Closet(
+                              length: dressList.length,
+                              scrollController: scrollController,
+                            ),
+                          ),
+                        ]),
                       ),
                     ],
                   ),
                 ),
               ],
-            )
-          ],
+            ),
+          ),
         );
       },
     );
