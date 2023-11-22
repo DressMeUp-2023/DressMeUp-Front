@@ -13,7 +13,11 @@ class InitHome extends StatefulWidget {
 
 class _BottomBarState extends State<InitHome> {
   int currentIndex = 1;
-  static List<Widget> pages = const <Widget>[ChangeModel(), DressUp(), Album()];
+  static List<Widget> pages = <Widget>[
+    const ChangeModel(),
+    const DressUp(),
+    const Album()
+  ];
 
   @override
   Widget build(BuildContext context) {

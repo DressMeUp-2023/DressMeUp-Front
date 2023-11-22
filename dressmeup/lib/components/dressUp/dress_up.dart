@@ -1,5 +1,7 @@
+import 'package:dressmeup/components/Sign_up.dart';
 import 'package:dressmeup/components/dressUp/closet_sheet.dart';
 import 'package:dressmeup/components/init_setting.dart';
+import 'package:dressmeup/components/login.dart';
 import 'package:flutter/material.dart';
 
 class DressUp extends StatelessWidget {
@@ -38,7 +40,7 @@ class DressUp extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const InitPage()));
+                                      builder: (context) => SignUp()));
                             },
                             child: Icon(
                               Icons.download,
