@@ -8,58 +8,54 @@ class DressUp extends StatelessWidget {
   @override
   Widget build(context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(top: 40.0, left: 8, right: 8),
-        child: Stack(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(35)),
-              child: Stack(
-                children: [
-                  Center(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(35),
-                          image: const DecorationImage(
-                            image: AssetImage('lib/assets/maleModel.png'),
-                          )),
-                    ),
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(35)),
+            child: Stack(
+              children: [
+                Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(35),
+                        image: const DecorationImage(
+                          image: AssetImage('lib/assets/maleModel.png'),
+                        )),
                   ),
-                  Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Icon(Icons.refresh_outlined,
-                                size: 50, color: Colors.grey.shade700),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const InitPage()));
-                              },
-                              child: Icon(
-                                Icons.download,
-                                size: 50,
-                                color: Colors.grey.shade700,
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
+                ),
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(Icons.refresh_outlined,
+                              size: 50, color: Colors.grey.shade700),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const InitPage()));
+                            },
+                            child: Icon(
+                              Icons.download,
+                              size: 50,
+                              color: Colors.grey.shade700,
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            const ClosetSheet(),
-          ],
-        ),
+          ),
+          const ClosetSheet(),
+        ],
       ),
     );
   }
