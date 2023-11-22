@@ -27,6 +27,7 @@ class Closet extends StatefulWidget {
 
 class _Closet extends State<Closet> {
   int _selectedImageIndex = 0;
+  bool isSelected = false;
 
   @override
   void initState() {
@@ -51,15 +52,29 @@ class _Closet extends State<Closet> {
                   imgSource: ImageSource.camera),
             );
           } else {
-            return SelectImage(
-              index: index,
-              isSelected: _selectedImageIndex == index,
-              onTap: (selectedImageIndex) {
-                setState(() {
-                  _selectedImageIndex = index;
-                });
-              },
-            );
+            return isSelected
+                ? SelectImage(
+                    index: index,
+                    isSelected: false,
+                    onTap: (selectedImageIndex) {
+                      setState(() {
+                        print('already selected');
+                        _selectedImageIndex = index;
+                        isSelected = false;
+                      });
+                    },
+                  )
+                : SelectImage(
+                    index: index,
+                    isSelected: _selectedImageIndex == index,
+                    onTap: (selectedImageIndex) {
+                      setState(() {
+                        print(isSelected);
+                        _selectedImageIndex = index;
+                        isSelected = true;
+                      });
+                    },
+                  );
           }
         },
       ),
