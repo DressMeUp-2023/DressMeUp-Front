@@ -58,7 +58,6 @@ class _Closet extends State<Closet> {
                     isSelected: false,
                     onTap: (selectedImageIndex) {
                       setState(() {
-                        print('already selected');
                         _selectedImageIndex = index;
                         isSelected = false;
                       });
@@ -69,7 +68,6 @@ class _Closet extends State<Closet> {
                     isSelected: _selectedImageIndex == index,
                     onTap: (selectedImageIndex) {
                       setState(() {
-                        print(isSelected);
                         _selectedImageIndex = index;
                         isSelected = true;
                       });
