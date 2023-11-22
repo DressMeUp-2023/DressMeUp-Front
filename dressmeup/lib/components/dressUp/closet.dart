@@ -32,7 +32,6 @@ class _Closet extends State<Closet> {
   @override
   void initState() {
     _selectedImageIndex = widget.length + 1;
-
     super.initState();
   }
 
