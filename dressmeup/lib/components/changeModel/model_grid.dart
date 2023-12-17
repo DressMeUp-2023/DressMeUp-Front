@@ -1,9 +1,7 @@
 import 'package:dressmeup/assets/constants.dart';
 import 'package:dressmeup/classes/fitting_class.dart';
-import 'package:dressmeup/components/button.dart';
-import 'package:dressmeup/components/select_image copy.dart';
+import 'package:dressmeup/components/select_image.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 class ModelGrid extends StatefulWidget {
   final int length;
@@ -15,17 +13,17 @@ class ModelGrid extends StatefulWidget {
 }
 
 class _ModelGridState extends State<ModelGrid> {
+  int _selectedImageIndex = 0;
+  bool isSelected = false;
+
+  @override
+  void initState() {
+    _selectedImageIndex = widget.length + 1;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    int selectedImageIndex = 0;
-    bool isSelected = false;
-
-    @override
-    void initState() {
-      selectedImageIndex = widget.length + 1;
-      super.initState();
-    }
-
     return Column(children: [
       Flexible(
         child: GridView.count(
@@ -37,10 +35,10 @@ class _ModelGridState extends State<ModelGrid> {
                   ? SelectImage(
                       index: index,
                       image: widget.image[index].image,
-                      isSelected: selectedImageIndex == index,
+                      isSelected: _selectedImageIndex == index,
                       onTap: (selectedImageIndex) {
                         setState(() {
-                          selectedImageIndex = index;
+                          _selectedImageIndex = index;
                           isSelected = false;
                         });
                       },
@@ -51,7 +49,7 @@ class _ModelGridState extends State<ModelGrid> {
                       isSelected: false,
                       onTap: (selectedImageIndex) {
                         setState(() {
-                          selectedImageIndex = index;
+                          _selectedImageIndex = index;
                           isSelected = true;
                         });
                       },
@@ -65,7 +63,7 @@ class _ModelGridState extends State<ModelGrid> {
               height: 50,
               color: Colors.white,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 45),
+                padding: const EdgeInsets.only(left: 45, right: 45, top: 10),
                 child: TextButton(
                     style: TextButton.styleFrom(
                         backgroundColor: const Color(completeButtonColor),
@@ -81,6 +79,7 @@ class _ModelGridState extends State<ModelGrid> {
               ),
             )
           : Container()
+      //선택 완료시, post로 사용자가 변경한 이미지로 index 변경/기존 index 삭제
     ]);
   }
 }
