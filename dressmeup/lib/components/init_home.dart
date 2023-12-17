@@ -1,7 +1,7 @@
 import 'package:dressmeup/assets/constants.dart';
 import 'package:dressmeup/components/changeModel/change_model.dart';
 import 'package:dressmeup/components/dressUp/dress_up.dart';
-import "package:dressmeup/components/album.dart";
+import 'package:dressmeup/components/Album/album.dart';
 import "package:flutter/material.dart";
 
 class InitHome extends StatefulWidget {

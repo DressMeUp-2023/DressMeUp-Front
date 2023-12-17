@@ -1,6 +1,5 @@
 import 'package:dressmeup/components/button.dart';
-import 'package:dressmeup/components/select_image copy.dart';
-import 'package:dressmeup/components/select_image_c.dart';
+import 'package:dressmeup/components/select_image.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:dressmeup/classes/clothes_class.dart';
