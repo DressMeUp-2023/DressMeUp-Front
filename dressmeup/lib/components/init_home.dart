@@ -1,7 +1,7 @@
 import 'package:dressmeup/assets/constants.dart';
 import 'package:dressmeup/components/changeModel/change_model.dart';
 import 'package:dressmeup/components/dressUp/dress_up.dart';
-import "package:dressmeup/components/album.dart";
+import 'package:dressmeup/components/Album/album.dart';
 import "package:flutter/material.dart";
 
 class InitHome extends StatefulWidget {
@@ -13,7 +13,11 @@ class InitHome extends StatefulWidget {
 
 class _BottomBarState extends State<InitHome> {
   int currentIndex = 1;
-  static List<Widget> pages = const <Widget>[ChangeModel(), DressUp(), Album()];
+  static List<Widget> pages = <Widget>[
+    const ChangeModel(),
+    const DressUp(),
+    const Album()
+  ];
 
   @override
   Widget build(BuildContext context) {

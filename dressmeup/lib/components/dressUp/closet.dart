@@ -1,14 +1,18 @@
 import 'package:dressmeup/components/button.dart';
 import 'package:dressmeup/components/select_image.dart';
-
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:dressmeup/classes/clothes_class.dart';
 
 class Closet extends StatefulWidget {
   final int length;
+  final List<dynamic>? image;
   final ScrollController? scrollController;
   const Closet(
-      {super.key, required this.length, required this.scrollController});
+      {super.key,
+      required this.length,
+      required this.image,
+      required this.scrollController});
 
   @override
   State<Closet> createState() => _Closet();
@@ -56,9 +60,9 @@ class _Closet extends State<Closet> {
                 ? SelectImage(
                     index: index,
                     isSelected: false,
+                    image: widget.image![index - 1].image,
                     onTap: (selectedImageIndex) {
                       setState(() {
-                        print('already selected');
                         _selectedImageIndex = index;
                         isSelected = false;
                       });
@@ -67,9 +71,9 @@ class _Closet extends State<Closet> {
                 : SelectImage(
                     index: index,
                     isSelected: _selectedImageIndex == index,
+                    image: widget.image![index - 1].image,
                     onTap: (selectedImageIndex) {
                       setState(() {
-                        print(isSelected);
                         _selectedImageIndex = index;
                         isSelected = true;
                       });
