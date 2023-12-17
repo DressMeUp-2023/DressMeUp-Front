@@ -1,5 +1,7 @@
 import 'package:dressmeup/assets/constants.dart';
+import 'package:dressmeup/classes/clothes_class.dart';
 import 'package:dressmeup/components/dressUp/closet.dart';
+import 'package:dressmeup/services/clothes.service.dart';
 import 'package:flutter/material.dart';
 
 class ClosetSheet extends StatelessWidget {
@@ -9,29 +11,8 @@ class ClosetSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const List<Text> topList = [
-      Text("image0"),
-      Text("image0"),
-      Text("image0"),
-      Text("image0"),
-      Text("image4")
-    ];
-    const List<Text> bottomList = [
-      Text("image0"),
-      Text("image0"),
-      Text("image0"),
-      Text("image0"),
-      Text("image4"),
-      Text("image0"),
-      Text("image0"),
-      Text("image0"),
-      Text("image0"),
-      Text("image9")
-    ];
-    const List<Text> dressList = [
-      Text("image0"),
-      Text("image1"),
-    ];
+    late Future<List<TopModel>> tops;
+    ClothService clothService = ClothService();
 
     return DraggableScrollableSheet(
       initialChildSize: 0.18,
@@ -96,36 +77,63 @@ class ClosetSheet extends StatelessWidget {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.5,
                         child: TabBarView(children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: const Color(widgetBackgroundColor),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Closet(
-                              length: topList.length,
-                              scrollController: scrollController,
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: const Color(widgetBackgroundColor),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Closet(
-                              length: bottomList.length,
-                              scrollController: scrollController,
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: const Color(widgetBackgroundColor),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Closet(
-                              length: dressList.length,
-                              scrollController: scrollController,
-                            ),
-                          ),
+                          FutureBuilder(
+                              future: clothService.loadTopData(),
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  return Container(
+                                    decoration: BoxDecoration(
+                                      color: const Color(widgetBackgroundColor),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Closet(
+                                      length: snapshot.data!.length,
+                                      image: snapshot.data!,
+                                      scrollController: scrollController,
+                                    ),
+                                  );
+                                } else {
+                                  return Container();
+                                }
+                              }),
+                          FutureBuilder(
+                              future: clothService.loadBottomData(),
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  return Container(
+                                    decoration: BoxDecoration(
+                                      color: const Color(widgetBackgroundColor),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Closet(
+                                      length: snapshot.data!.length,
+                                      image: snapshot.data!,
+                                      scrollController: scrollController,
+                                    ),
+                                  );
+                                } else {
+                                  return Container();
+                                }
+                              }),
+                          FutureBuilder(
+                              future: clothService.loadDressData(),
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  return Container(
+                                    decoration: BoxDecoration(
+                                      color: const Color(widgetBackgroundColor),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Closet(
+                                      length: snapshot.data!.length,
+                                      image: snapshot.data!,
+                                      scrollController: scrollController,
+                                    ),
+                                  );
+                                } else {
+                                  return Container();
+                                }
+                              }),
                         ]),
                       ),
                     ],
