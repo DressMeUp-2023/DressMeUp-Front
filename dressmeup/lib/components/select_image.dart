@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 
 class SelectImage extends StatelessWidget {
   final int index;
+  final String image;
   final bool isSelected;
   final void Function(int index) onTap;
   const SelectImage(
       {super.key,
       required this.index,
+      required this.image,
       required this.isSelected,
       required this.onTap});
 
@@ -18,6 +20,7 @@ class SelectImage extends StatelessWidget {
       child: GestureDetector(
         onTap: () => onTap(index),
         child: Container(
+          clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(
@@ -28,7 +31,11 @@ class SelectImage extends StatelessWidget {
           ),
           child: Stack(
             children: [
-              Center(child: Text("image $index")),
+              Center(
+                  child: Image.network(
+                image,
+                fit: BoxFit.cover,
+              )),
               isSelected
                   ? const Padding(
                       padding: EdgeInsets.all(8.0),
