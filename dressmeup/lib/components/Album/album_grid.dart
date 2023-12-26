@@ -80,7 +80,7 @@ class _AlbumGridState extends State<AlbumGrid> {
                       isLiked
                           ? Icons.favorite
                           : Icons.favorite_outline_outlined,
-                      color: const Color(completeButtonColor),
+                      color: const Color(lightPinkColor),
                     ),
                   ),
                 ),

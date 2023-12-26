@@ -22,7 +22,7 @@ class _BottomBarState extends State<InitHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(widgetBackgroundColor),
+      backgroundColor: const Color(darkPinkColor),
       bottomNavigationBar: BottomNavigationBar(
           onTap: (newIndex) {
             setState(() {
@@ -33,7 +33,7 @@ class _BottomBarState extends State<InitHome> {
           currentIndex: currentIndex,
           showUnselectedLabels: false,
           selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-          selectedItemColor: const Color(dartSkyBlueColor),
+          selectedItemColor: const Color(darkSkyBlueColor),
           unselectedItemColor: const Color(fontColor),
           items: const [
             BottomNavigationBarItem(

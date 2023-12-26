@@ -41,7 +41,7 @@ class SelectImage extends StatelessWidget {
                       padding: EdgeInsets.all(8.0),
                       child: CircleAvatar(
                         radius: 13,
-                        backgroundColor: Color(completeButtonColor),
+                        backgroundColor: Color(lightPinkColor),
                         child: Icon(Icons.check, color: Colors.white),
                       ),
                     )

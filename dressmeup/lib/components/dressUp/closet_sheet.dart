@@ -22,12 +22,12 @@ class ClosetSheet extends StatelessWidget {
         return SingleChildScrollView(
           controller: scrollController,
           child: Container(
-            color: const Color(widgetBackgroundColor),
+            color: const Color(darkPinkColor),
             child: Column(
               children: [
                 IgnorePointer(
                   child: Container(
-                    color: const Color(widgetBackgroundColor),
+                    color: const Color(darkPinkColor),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -49,7 +49,7 @@ class ClosetSheet extends StatelessWidget {
                   child: Column(
                     children: [
                       const TabBar(
-                        indicatorColor: Color(completeButtonColor),
+                        indicatorColor: Color(lightPinkColor),
                         tabs: [
                           Text(
                             'Top',
@@ -83,7 +83,7 @@ class ClosetSheet extends StatelessWidget {
                                 if (snapshot.hasData) {
                                   return Container(
                                     decoration: BoxDecoration(
-                                      color: const Color(widgetBackgroundColor),
+                                      color: const Color(darkPinkColor),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: Closet(
@@ -102,7 +102,7 @@ class ClosetSheet extends StatelessWidget {
                                 if (snapshot.hasData) {
                                   return Container(
                                     decoration: BoxDecoration(
-                                      color: const Color(widgetBackgroundColor),
+                                      color: const Color(darkPinkColor),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: Closet(
@@ -121,7 +121,7 @@ class ClosetSheet extends StatelessWidget {
                                 if (snapshot.hasData) {
                                   return Container(
                                     decoration: BoxDecoration(
-                                      color: const Color(widgetBackgroundColor),
+                                      color: const Color(darkPinkColor),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: Closet(

@@ -67,7 +67,8 @@ class _ButtonState extends State<Button> {
                         fontSize: 18, color: Color(boxBorderColor)),
                   ),
                   const SizedBox(height: 10),
-                  Icon(widget.icon, size: 40, color: const Color(buttonColor))
+                  Icon(widget.icon,
+                      size: 40, color: const Color(lightSkyBlueColor))
                 ],
               ),
       ),

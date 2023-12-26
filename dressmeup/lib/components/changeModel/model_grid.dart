@@ -66,7 +66,7 @@ class _ModelGridState extends State<ModelGrid> {
                 padding: const EdgeInsets.only(left: 45, right: 45, top: 10),
                 child: TextButton(
                     style: TextButton.styleFrom(
-                        backgroundColor: const Color(completeButtonColor),
+                        backgroundColor: const Color(lightPinkColor),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40),
                         )),
